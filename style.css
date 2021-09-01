@@ -1,0 +1,38 @@
+#nomsJoueurs {
+    background-color: rgba(3, 145, 3, 0.75);
+    color: white;
+    padding: 5px 10px;
+}
+#nomsJoueurs:hover {
+    cursor: pointer;
+}
+#recommencer {
+    width: fit-content;
+    background-color: rgba(3, 145, 3, 0.5);
+    color: rgba(0, 0, 0, 0.74);
+}
+#recommencer:hover {
+    cursor: pointer;
+    background-color: rgba(3, 145, 3, 0.75);
+    color: white;
+}
+#top {
+    height: 200px;
+}
+#plateau {
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+#plateau:hover {
+    cursor: pointer;
+}
+#plateau > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(3, 145, 3, 0.75);
+}

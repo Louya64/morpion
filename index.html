@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <title>Morpion</title>
+    </head>
+    <body>
+        <main>
+            <div id="top" class="fs-3 position-relative">
+                <div class="fs-6 position-absolute mt-5">
+                    <span id="nomsJoueurs" class="rounded-3">Changer les noms de joueurs</span>
+                    <form id="formNoms" action="#" class="mt-3 text-center">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="joueur1">
+                            <label for="joueur1">Nom du joueur 1:</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="joueur2">
+                            <label for="joueur2">Nom du joueur 2:</label>
+                        </div>
+                        <div>
+                            <button class="btn btn-secondary mt-3" type="submit">Valider</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <p id="tourJoueur" class="text-center pt-5">
+                    <span id="joueur" class="text-decoration-underline fs-1"></span>
+                    , à vous de jouer<br>
+                </p>
+                <div id="declarationWinner" class="text-center pt-5">
+                    <span id="winner" class="text-decoration-underline fs-1"></span>
+                     a gagné
+                     <span id="recommencer" class="fs-1 px-3 pt-2 pb-3 fw-bold ms-4 rounded-3">Recommencer</span>
+                </div>
+            </div>
+            <div id="plateau">
+                <div class="case" id="case1"></div>
+                <div class="case" id="case2"></div>
+                <div class="case" id="case3"></div>
+                <div class="case" id="case4"></div>
+                <div class="case" id="case5"></div>
+                <div class="case" id="case6"></div>
+                <div class="case" id="case7"></div>
+                <div class="case" id="case8"></div>
+                <div class="case" id="case9"></div>
+            </div>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
