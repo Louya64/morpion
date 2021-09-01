@@ -1,17 +1,17 @@
-#nomsJoueurs {
+#playerNamesChange {
     background-color: rgba(3, 145, 3, 0.75);
     color: white;
     padding: 5px 10px;
 }
-#nomsJoueurs:hover {
+#playerNamesChange:hover {
     cursor: pointer;
 }
-#recommencer {
+#restart {
     width: fit-content;
     background-color: rgba(3, 145, 3, 0.5);
     color: rgba(0, 0, 0, 0.74);
 }
-#recommencer:hover {
+#restart:hover {
     cursor: pointer;
     background-color: rgba(3, 145, 3, 0.75);
     color: white;
@@ -19,7 +19,7 @@
 #top {
     height: 200px;
 }
-#plateau {
+#board {
     width: 600px;
     height: 600px;
     margin: auto;
@@ -27,10 +27,10 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
-#plateau:hover {
+#board:hover {
     cursor: pointer;
 }
-#plateau > div {
+#board > div {
     display: flex;
     justify-content: center;
     align-items: center;

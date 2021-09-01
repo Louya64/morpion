@@ -1,117 +1,124 @@
 
-let formNoms = document.getElementById("formNoms");
-let plateau = document.getElementById("plateau");
-let cellules = document.getElementsByClassName("case");
-let croix = '<img src="images/croix.svg" alt="croix" width="195">';
-let rond = '<img src="images/rond.svg" alt="rond" width="150">';
-let joueur = document.getElementById("joueur");
-let tourJoueur = document.getElementById("tourJoueur");
-let nomsJoueurs = document.getElementById("nomsJoueurs");
-let joueur1 = sessionStorage.getItem('joueur1') || 'Joueur 1';
-let joueur2 = sessionStorage.getItem('joueur2') || 'Joueur 2';
-let player = joueur1; //initialisation du joueur dont c'est le tour (joueur 1 en début de partie)
-let declarationWinner = document.getElementById("declarationWinner");
+let formNames = document.getElementById("formNames");
+let board = document.getElementById("board");
+let cels = document.getElementsByClassName("cel");
+let cross = '<img src="images/cross.svg" alt="cross" width="195">';
+let circle = '<img src="images/circle.svg" alt="circle" width="150">';
+let playerName = document.getElementById("playerName");
+let playerPlaying = document.getElementById("playerPlaying");
+let playerNamesChange = document.getElementById("playerNamesChange");
+let player1 = sessionStorage.getItem('player1') || 'Joueur 1';
+let player2 = sessionStorage.getItem('player2') || 'Joueur 2';
+let player = player1; //initialization player who must play (player 1 at the beginning of the game)
+let resultWinner = document.getElementById("resultWinner");
 let winner = document.getElementById("winner");
-let btnRecommencer = document.getElementById("recommencer");
+let btnRestart = document.getElementById("restart");
 
-formNoms.classList.add('d-none'); //ne s'affiche que pour changer de noms
-declarationWinner.classList.add('d-none');//ne s'affiche que quand la partie est finie (gagnant ou null)
-tourJoueur.classList.remove('d-none');//ne s'affiche que quand la partie est en cours
-joueur.innerHTML = player; //affichage nom joueur en cours
+formNames.classList.add('d-none'); //displays only for changing names
+resultWinner.classList.add('d-none');//displays only when the game is finished (with or without a winner)
+playerPlaying.classList.remove('d-none');//displays only when the game is playing
+playerName.innerHTML = player; //displays the name of the player who must play
 
-//changement de noms (peut se faire à tout moment)
-nomsJoueurs.addEventListener("click", function() {
-    formNoms.classList.remove('d-none');
-    formNoms.addEventListener("submit", function(e) {
+//CHANGING NAMES (can be done at every moment)
+playerNamesChange.addEventListener("click", function() {
+    formNames.classList.remove('d-none');
+    formNames.addEventListener("submit", function(e) {
         e.preventDefault();
-        let ancienNom1 = joueur1;
-        if (document.getElementById("joueur1").value != '') {
-            sessionStorage.setItem('joueur1', document.getElementById("joueur1").value); //stckage dans variable session pour garder valeur au reload (d'une partie à l'autre)
-            joueur1 = document.getElementById("joueur1").value;
+        let storedPlayer1Name = player1;
+        if (document.getElementById("player1").value != '') {
+            sessionStorage.setItem('player1', document.getElementById("player1").value); //storage players's names to give them back on restart
+            player1 = document.getElementById("player1").value;
         }
-        if (document.getElementById("joueur2").value != '') {
-            sessionStorage.setItem('joueur2', document.getElementById("joueur2").value);
-            joueur2 = document.getElementById("joueur2").value;
+        if (document.getElementById("player2").value != '') {
+            sessionStorage.setItem('player2', document.getElementById("player2").value);
+            player2 = document.getElementById("player2").value;
         }
 
-        //mise à jour variable player
-        if (player == ancienNom1) {
-            player = joueur1;
+        //update "player" variable
+        if (player == storedPlayer1Name) {
+            player = player1;
         } else {
-            player = joueur2;
+            player = player2;
         }
-        joueur.innerHTML = player;
-        formNoms.classList.add('d-none');
+        playerName.innerHTML = player;
+        formNames.classList.add('d-none');
     })
 })
 
-//récup case choisie par joueur et insère rond ou croix selon joueur puis désactive la case (pour pas réecrire dessus)
-for (let cellule of cellules) {
-    cellule.addEventListener("click", function(){
-        if (declarationWinner.classList.contains("d-none")) {
-            if (player === joueur1) {
-                cellule.innerHTML = croix;
-                player = joueur2;
+//PLAYING
+//eventListener on each cell, removed after being played (prevent for re-write a cell)
+//write a cross for player 1 and a circle for player 2
+//toggles "player" variable : player1 / player2
+for (let cel of cels) {
+    cel.addEventListener("click", function(){
+
+        //this first if prevents from go on playing if there is a winner (when a winner -> resultWinner doesn't contain class "d-none" so nothing happens onClick)
+        if (resultWinner.classList.contains("d-none")) {
+            if (player === player1) {
+                cel.innerHTML = cross;
+                player = player2;
             } else {
-                cellule.innerHTML = rond;
-                player = joueur1;
+                cel.innerHTML = circle;
+                player = player1;
             }
-            joueur.innerHTML = player;
+            playerName.innerHTML = player;
         }
     }, {once : true})
 }
 
-//vérif si y'a un winner
-plateau.addEventListener("click", function() {
-    let case0 = cellules[0].innerHTML
-    let case1 = cellules[1].innerHTML
-    let case2 = cellules[2].innerHTML
-    let case3 = cellules[3].innerHTML
-    let case4 = cellules[4].innerHTML
-    let case5 = cellules[5].innerHTML
-    let case6 = cellules[6].innerHTML
-    let case7 = cellules[7].innerHTML
-    let case8 = cellules[8].innerHTML
+//WINNER? or nobody
+board.addEventListener("click", function() {
+    let cel0 = cels[0].innerHTML
+    let cel1 = cels[1].innerHTML
+    let cel2 = cels[2].innerHTML
+    let cel3 = cels[3].innerHTML
+    let cel4 = cels[4].innerHTML
+    let cel5 = cels[5].innerHTML
+    let cel6 = cels[6].innerHTML
+    let cel7 = cels[7].innerHTML
+    let cel8 = cels[8].innerHTML
     
+    //winner = player1
     if (
-        (case0 == croix && case1 == croix && case2 == croix) ||
-        (case3 == croix && case4 == croix && case5 == croix) ||
-        (case6 == croix && case7 == croix && case8 == croix) ||
-        (case0 == croix && case3 == croix && case6 == croix) ||
-        (case1 == croix && case4 == croix && case7 == croix) ||
-        (case2 == croix && case5 == croix && case8 == croix) ||
-        (case0 == croix && case4 == croix && case8 == croix) ||
-        (case2 == croix && case4 == croix && case6 == croix) 
+        (cel0 == cross && cel1 == cross && cel2 == cross) ||
+        (cel3 == cross && cel4 == cross && cel5 == cross) ||
+        (cel6 == cross && cel7 == cross && cel8 == cross) ||
+        (cel0 == cross && cel3 == cross && cel6 == cross) ||
+        (cel1 == cross && cel4 == cross && cel7 == cross) ||
+        (cel2 == cross && cel5 == cross && cel8 == cross) ||
+        (cel0 == cross && cel4 == cross && cel8 == cross) ||
+        (cel2 == cross && cel4 == cross && cel6 == cross) 
     ) {
-        tourJoueur.classList.add('d-none');
-        declarationWinner.classList.remove('d-none');
-        winner.innerHTML = joueur1;
+        playerPlaying.classList.add('d-none');
+        resultWinner.classList.remove('d-none');
+        winner.innerHTML = player1;
     }
 
+    //winner = player2
     if (
-        (case0 == rond && case1 == rond && case2 == rond) ||
-        (case3 == rond && case4 == rond && case5 == rond) ||
-        (case6 == rond && case7 == rond && case8 == rond) ||
-        (case0 == rond && case3 == rond && case6 == rond) ||
-        (case1 == rond && case4 == rond && case7 == rond) ||
-        (case2 == rond && case5 == rond && case8 == rond) ||
-        (case0 == rond && case4 == rond && case8 == rond) ||
-        (case2 == rond && case4 == rond && case6 == rond) 
+        (cel0 == circle && cel1 == circle && cel2 == circle) ||
+        (cel3 == circle && cel4 == circle && cel5 == circle) ||
+        (cel6 == circle && cel7 == circle && cel8 == circle) ||
+        (cel0 == circle && cel3 == circle && cel6 == circle) ||
+        (cel1 == circle && cel4 == circle && cel7 == circle) ||
+        (cel2 == circle && cel5 == circle && cel8 == circle) ||
+        (cel0 == circle && cel4 == circle && cel8 == circle) ||
+        (cel2 == circle && cel4 == circle && cel6 == circle) 
     ) {
-        tourJoueur.classList.add('d-none');
-        declarationWinner.classList.remove('d-none');
-        winner.innerHTML = joueur2;
+        playerPlaying.classList.add('d-none');
+        resultWinner.classList.remove('d-none');
+        winner.innerHTML = player2;
     }
 
-    //si toutes les cases sont remplies sans gagnant, c'est perdu!
-    if (case0 != '' && case1 != '' && case2 != '' && case3 != '' && case4 != '' && case5 != '' && case6 != '' && case7 != '' && case8 != '') {
-        tourJoueur.classList.add('d-none');
-        declarationWinner.classList.remove('d-none');
+    //nobody wins
+    if (cel0 != '' && cel1 != '' && cel2 != '' && cel3 != '' && cel4 != '' && cel5 != '' && cel6 != '' && cel7 != '' && cel8 != '') {
+        playerPlaying.classList.add('d-none');
+        resultWinner.classList.remove('d-none');
         winner.innerHTML = "Personne n'";
     }
 })
 
-//btn recommencer -> reload page
-btnRecommencer.addEventListener("click", function() {
+//btn restart -> reload page
+btnRestart.addEventListener("click", function() {
     window.location.reload();
 })
