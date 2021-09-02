@@ -2,8 +2,8 @@
 let formNames = document.getElementById("formNames");
 let board = document.getElementById("board");
 let cels = document.getElementsByClassName("cel");
-let cross = '<img src="images/cross.svg" alt="cross" width="195">';
-let circle = '<img src="images/circle.svg" alt="circle" width="150">';
+let cross = '<img src="images/cross.svg" alt="cross" width="140">';
+let circle = '<img src="images/circle.svg" alt="circle" width="110">';
 let playerName = document.getElementById("playerName");
 let playerPlaying = document.getElementById("playerPlaying");
 let playerNamesChange = document.getElementById("playerNamesChange");
@@ -111,46 +111,46 @@ board.addEventListener("click", function() {
         player1PointsCount++;
         sessionStorage.setItem('player1Points', player1PointsCount);
         player1Points.innerHTML = player1PointsCount;
-        
+
         if (cel0 === cross && cel1 === cross && cel2 === cross) {
-            cels[0].classList.add('bg-green');
-            cels[1].classList.add('bg-green');
-            cels[2].classList.add('bg-green');
+            cels[0].classList.add('bg-win');
+            cels[1].classList.add('bg-win');
+            cels[2].classList.add('bg-win');
         }
         if (cel3 === cross && cel4 === cross && cel5 === cross) {
-            cels[3].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[5].classList.add('bg-green');
+            cels[3].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[5].classList.add('bg-win');
         }
         if (cel6 === cross && cel7 === cross && cel8 === cross) {
-            cels[6].classList.add('bg-green');
-            cels[7].classList.add('bg-green');
-            cels[8].classList.add('bg-green');
+            cels[6].classList.add('bg-win');
+            cels[7].classList.add('bg-win');
+            cels[8].classList.add('bg-win');
         }
         if (cel0 === cross && cel3 === cross && cel6 === cross) {
-            cels[0].classList.add('bg-green');
-            cels[3].classList.add('bg-green');
-            cels[6].classList.add('bg-green');
+            cels[0].classList.add('bg-win');
+            cels[3].classList.add('bg-win');
+            cels[6].classList.add('bg-win');
         }
         if (cel1 === cross && cel4 === cross && cel7 === cross) {
-            cels[1].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[7].classList.add('bg-green');
+            cels[1].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[7].classList.add('bg-win');
         }
         if (cel2 === cross && cel5 === cross && cel8 === cross) {
-            cels[2].classList.add('bg-green');
-            cels[5].classList.add('bg-green');
-            cels[8].classList.add('bg-green');
+            cels[2].classList.add('bg-win');
+            cels[5].classList.add('bg-win');
+            cels[8].classList.add('bg-win');
         }
         if (cel0 === cross && cel4 === cross && cel8 === cross) {
-            cels[0].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[8].classList.add('bg-green');
+            cels[0].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[8].classList.add('bg-win');
         }
         if (cel2 === cross && cel4 === cross && cel6 === cross) {
-            cels[2].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[6].classList.add('bg-green');
+            cels[2].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[6].classList.add('bg-win');
         }
         return;
     }
@@ -174,44 +174,44 @@ board.addEventListener("click", function() {
         player2Points.innerHTML = player2PointsCount;
         
         if (cel0 === circle && cel1 === circle && cel2 === circle) {
-            cels[0].classList.add('bg-green');
-            cels[1].classList.add('bg-green');
-            cels[2].classList.add('bg-green');
+            cels[0].classList.add('bg-win');
+            cels[1].classList.add('bg-win');
+            cels[2].classList.add('bg-win');
         }
         if (cel3 === circle && cel4 === circle && cel5 === circle) {
-            cels[3].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[5].classList.add('bg-green');
+            cels[3].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[5].classList.add('bg-win');
         }
         if (cel6 === circle && cel7 === circle && cel8 === circle) {
-            cels[6].classList.add('bg-green');
-            cels[7].classList.add('bg-green');
-            cels[8].classList.add('bg-green');
+            cels[6].classList.add('bg-win');
+            cels[7].classList.add('bg-win');
+            cels[8].classList.add('bg-win');
         }
         if (cel0 === circle && cel3 === circle && cel6 === circle) {
-            cels[0].classList.add('bg-green');
-            cels[3].classList.add('bg-green');
-            cels[6].classList.add('bg-green');
+            cels[0].classList.add('bg-win');
+            cels[3].classList.add('bg-win');
+            cels[6].classList.add('bg-win');
         }
         if (cel1 === circle && cel4 === circle && cel7 === circle) {
-            cels[1].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[7].classList.add('bg-green');
+            cels[1].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[7].classList.add('bg-win');
         }
         if (cel2 === circle && cel5 === circle && cel8 === circle) {
-            cels[2].classList.add('bg-green');
-            cels[5].classList.add('bg-green');
-            cels[8].classList.add('bg-green');
+            cels[2].classList.add('bg-win');
+            cels[5].classList.add('bg-win');
+            cels[8].classList.add('bg-win');
         }
         if (cel0 === circle && cel4 === circle && cel8 === circle) {
-            cels[0].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[8].classList.add('bg-green');
+            cels[0].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[8].classList.add('bg-win');
         }
         if (cel2 === circle && cel4 === circle && cel6 === circle) {
-            cels[2].classList.add('bg-green');
-            cels[4].classList.add('bg-green');
-            cels[6].classList.add('bg-green');
+            cels[2].classList.add('bg-win');
+            cels[4].classList.add('bg-win');
+            cels[6].classList.add('bg-win');
         }
         return;
     }
@@ -221,7 +221,7 @@ board.addEventListener("click", function() {
         playerPlaying.classList.add('d-none');
         resultWinner.classList.remove('d-none');
         winner.innerHTML = "Personne n'";
-        winner.classList.remove('text-decoration-underline', 'fs-1');
+        winner.classList.remove('fw-bold', 'fs-1');
     }
 })
 
