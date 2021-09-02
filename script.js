@@ -111,6 +111,7 @@ board.addEventListener("click", function() {
         player1PointsCount++;
         sessionStorage.setItem('player1Points', player1PointsCount);
         player1Points.innerHTML = player1PointsCount;
+        return;
     }
 
     //winner = player2
@@ -130,6 +131,7 @@ board.addEventListener("click", function() {
         player2PointsCount++;
         sessionStorage.setItem('player2Points', player2PointsCount);
         player2Points.innerHTML = player2PointsCount;
+        return;
     }
 
     //nobody wins
