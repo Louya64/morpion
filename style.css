@@ -1,5 +1,8 @@
-#playerNamesChange {
+.bg-green {
     background-color: rgba(3, 145, 3, 0.75);
+}
+#playerNamesChange {
+    /* background-color: rgba(3, 145, 3, 0.75); */
     padding: 5px 10px;
 }
 #playerNamesChange:hover {
@@ -7,11 +10,11 @@
 }
 #restart {
     width: fit-content;
-    background-color: rgba(3, 145, 3, 0.5);
+    /* background-color: rgba(3, 145, 3, 0.5); */
 }
 #restart:hover {
     cursor: pointer;
-    background-color: rgba(3, 145, 3, 0.75);
+    /* background-color: rgba(3, 145, 3, 0.75); */
     color: white;
 }
 #top {

@@ -111,6 +111,47 @@ board.addEventListener("click", function() {
         player1PointsCount++;
         sessionStorage.setItem('player1Points', player1PointsCount);
         player1Points.innerHTML = player1PointsCount;
+        
+        if (cel0 === cross && cel1 === cross && cel2 === cross) {
+            cels[0].classList.add('bg-green');
+            cels[1].classList.add('bg-green');
+            cels[2].classList.add('bg-green');
+        }
+        if (cel3 === cross && cel4 === cross && cel5 === cross) {
+            cels[3].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[5].classList.add('bg-green');
+        }
+        if (cel6 === cross && cel7 === cross && cel8 === cross) {
+            cels[6].classList.add('bg-green');
+            cels[7].classList.add('bg-green');
+            cels[8].classList.add('bg-green');
+        }
+        if (cel0 === cross && cel3 === cross && cel6 === cross) {
+            cels[0].classList.add('bg-green');
+            cels[3].classList.add('bg-green');
+            cels[6].classList.add('bg-green');
+        }
+        if (cel1 === cross && cel4 === cross && cel7 === cross) {
+            cels[1].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[7].classList.add('bg-green');
+        }
+        if (cel2 === cross && cel5 === cross && cel8 === cross) {
+            cels[2].classList.add('bg-green');
+            cels[5].classList.add('bg-green');
+            cels[8].classList.add('bg-green');
+        }
+        if (cel0 === cross && cel4 === cross && cel8 === cross) {
+            cels[0].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[8].classList.add('bg-green');
+        }
+        if (cel2 === cross && cel4 === cross && cel6 === cross) {
+            cels[2].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[6].classList.add('bg-green');
+        }
         return;
     }
 
@@ -131,6 +172,47 @@ board.addEventListener("click", function() {
         player2PointsCount++;
         sessionStorage.setItem('player2Points', player2PointsCount);
         player2Points.innerHTML = player2PointsCount;
+        
+        if (cel0 === circle && cel1 === circle && cel2 === circle) {
+            cels[0].classList.add('bg-green');
+            cels[1].classList.add('bg-green');
+            cels[2].classList.add('bg-green');
+        }
+        if (cel3 === circle && cel4 === circle && cel5 === circle) {
+            cels[3].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[5].classList.add('bg-green');
+        }
+        if (cel6 === circle && cel7 === circle && cel8 === circle) {
+            cels[6].classList.add('bg-green');
+            cels[7].classList.add('bg-green');
+            cels[8].classList.add('bg-green');
+        }
+        if (cel0 === circle && cel3 === circle && cel6 === circle) {
+            cels[0].classList.add('bg-green');
+            cels[3].classList.add('bg-green');
+            cels[6].classList.add('bg-green');
+        }
+        if (cel1 === circle && cel4 === circle && cel7 === circle) {
+            cels[1].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[7].classList.add('bg-green');
+        }
+        if (cel2 === circle && cel5 === circle && cel8 === circle) {
+            cels[2].classList.add('bg-green');
+            cels[5].classList.add('bg-green');
+            cels[8].classList.add('bg-green');
+        }
+        if (cel0 === circle && cel4 === circle && cel8 === circle) {
+            cels[0].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[8].classList.add('bg-green');
+        }
+        if (cel2 === circle && cel4 === circle && cel6 === circle) {
+            cels[2].classList.add('bg-green');
+            cels[4].classList.add('bg-green');
+            cels[6].classList.add('bg-green');
+        }
         return;
     }
 
