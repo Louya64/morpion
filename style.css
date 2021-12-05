@@ -1,53 +1,152 @@
 body {
-    height: 100vh;
-    background: radial-gradient(circle, rgba(220,123,67,.75), rgba(147,17,87, 1));
-    color: white;
-    text-shadow: 1px 1px 10 rgba(147,17,87, 1);
+	height: 100vh;
+	background: radial-gradient(
+		circle,
+		rgba(220, 123, 67, 0.75),
+		rgba(147, 17, 87, 1)
+	);
+	color: white;
+	text-shadow: 1px 1px 10 rgba(147, 17, 87, 1);
 }
 main {
-    height: 100vh;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
 }
 
 .bg-win {
-    background: linear-gradient(300deg, rgba(147,17,87, 0.7), rgba(220,123,67,.75), rgba(147,17,87, 0.7), rgba(220,123,67,.75));
+	background: linear-gradient(
+		300deg,
+		rgba(147, 17, 87, 0.7),
+		rgba(220, 123, 67, 0.75),
+		rgba(147, 17, 87, 0.7),
+		rgba(220, 123, 67, 0.75)
+	);
 }
 .bg-pink-gradient {
-    background: linear-gradient(to right, rgba(147,17,87, 1), rgba(220,123,67,.75));
+	background: linear-gradient(
+		to right,
+		rgba(147, 17, 87, 1),
+		rgba(220, 123, 67, 0.75)
+	);
 }
 .bg-pink-light {
-    background-color: rgba(255, 255, 255, 0.40);
+	background-color: rgba(255, 255, 255, 0.4);
 }
 
 #playerNamesChange {
-    padding: 5px 10px;
+	padding: 5px 10px;
 }
 #playerNamesChange:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
 #restart {
-    width: fit-content;
+	width: fit-content;
 }
 #restart:hover {
-    cursor: pointer;
-    color: white;
+	cursor: pointer;
+	color: white;
 }
 #top {
-    height: 200px;
+	height: 200px;
 }
 #board {
-    width: 450px;
-    height: 450px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+	width: 450px;
+	height: 450px;
+	max-height: 70vh;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 }
 #board:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
 #board > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid rgb(102, 5, 57);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid rgb(102, 5, 57);
+}
+.fa-chevron-down {
+	display: none;
+	padding-left: 10px;
+}
+
+@media screen and (max-width: 900px) {
+	#playerNamesChange {
+		position: absolute;
+		text-align: center;
+		width: 80vw;
+		display: block;
+		top: 3vh;
+		left: 50%;
+		transform: translate(-50%);
+	}
+
+	.fa-chevron-down {
+		display: inline;
+	}
+
+	#formNames {
+		z-index: 1;
+		position: absolute;
+		top: 6vh;
+		width: 80%;
+		left: 50%;
+		transform: translate(-50%);
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+
+	#playerPlaying,
+	#resultWinner {
+		position: absolute;
+		top: 10vh;
+		width: 80%;
+		left: 50%;
+		transform: translate(-50%);
+		background-color: rgba(255, 255, 255, 0.4);
+		border-radius: 3px;
+	}
+
+	#gameInfos {
+		background-color: transparent;
+	}
+
+	#board {
+		position: absolute;
+		max-width: 96vw;
+		max-height: 96vw;
+		top: 25vh;
+		left: 1vw;
+		right: 1vw;
+	}
+
+	.cel {
+		max-width: 32vw;
+		max-height: 32vw;
+	}
+
+	#scoreContainer {
+		background-color: transparent;
+	}
+
+	#scoreP1 {
+		position: absolute;
+		bottom: 8vh;
+		left: 10vw;
+	}
+
+	#scoreP2 {
+		position: absolute;
+		bottom: 8vh;
+		right: 10vw;
+	}
+
+	#scoreReset {
+		position: absolute;
+		bottom: 2vh;
+		left: 50%;
+		transform: translate(-50%);
+	}
 }
